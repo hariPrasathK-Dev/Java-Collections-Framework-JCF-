@@ -3,15 +3,24 @@ import java.util.ArrayList ; // ArrayList is a collections framework API
 import java.io.File ;
 import java.io.BufferedReader ;
 import java.io.FileReader ;
+import java.util.Collections ;
 
 public class filehandling_sorting_arraylist
 {
 
+    // Note : TreeSet data structure is used whenever the data shoudl be sorted and the the duplicates be avoided by defualt the data structure does that !
+
+    // ArrayList is used when the order of the data is a must and then the array thing should be dynamic allowing n insertions and then even deletions !
     ArrayList<String> songList = new ArrayList<>() ;
     public void printSong()
     {
         traceSong() ;
         System.out.println(songList);
+        
+        // songList.sort() requires some declaration of stuff within the method which we will learn in the further examples.. As of now to keep things simple, just use the Collections class' sort method
+        
+        // Collections framework has many classes which has their own uses and drawbacks. one such class is Collections class
+        Collections.sort(songList) ; // the list provided inside the sort method should have meberswhich are comparable and that they should be implemet the comparable interface
     }
 
     public void traceSong()
