@@ -19,8 +19,56 @@ public class filehandling_sorting_arraylist
         
         // songList.sort() requires some declaration of stuff within the method which we will learn in the further examples.. As of now to keep things simple, just use the Collections class' sort method
         
-        // Collections framework has many classes which has their own uses and drawbacks. one such class is Collections class
+        /*
+         * You’re very close, just a small correction 🙂
+
+            The Java Collections Framework (JCF) has interfaces (like List, Set, Map), their implementations (like ArrayList, HashSet, HashMap), and some utility classes.
+
+            Collections (note the s) is not a data structure class itself.
+            👉 It is a utility/helper class that contains static methods to operate on collections (like sort(), shuffle(), reverse(), min(), max(), synchronizedList(), etc.).
+
+            So:
+
+            ✅ You are right that JCF has many classes with their own uses/drawbacks.
+
+            ❌ But Collections is not like ArrayList or HashSet (which store data).
+
+            ✅ Instead, Collections is like a toolbox of methods you can use on those data structures.
+
+            “Collections Framework has many classes with their own uses and drawbacks. One special class is the Collections utility class, which provides static methods to operate on or return collections.”
+         
+            Collection (interface)
+
+            Part of the root hierarchy in JCF.
+
+            Represents a group of objects (like a bag of elements).
+
+            Extended by List, Set, Queue.
+
+            Example:
+
+            Collection<String> list = new ArrayList<>();
+
+
+            Collections (class)
+
+            A utility class with only static methods.
+
+            Provides helper methods to work on collections (like sort, reverse, min, max, shuffle).
+
+            Example:
+
+            Collections.sort(list);
+
+
+            👉 Easy way to remember:
+
+            Collection = blueprint (interface) for storing data.
+
+            Collections = toolbox (utility class) for working with that data.
+            */
         Collections.sort(songList) ; // the list provided inside the sort method should have meberswhich are comparable and that they should be implemet the comparable interface
+        System.out.println(songList) ;
     }
 
     public void traceSong()
