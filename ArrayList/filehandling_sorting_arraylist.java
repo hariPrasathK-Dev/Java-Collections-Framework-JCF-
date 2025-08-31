@@ -11,7 +11,8 @@ public class filehandling_sorting_arraylist
     // Note : TreeSet data structure is used whenever the data shoudl be sorted and the the duplicates be avoided by defualt the data structure does that !
 
     // ArrayList is used when the order of the data is a must and then the array thing should be dynamic allowing n insertions and then even deletions !
-    ArrayList<String> songList = new ArrayList<>() ;
+    // ArrayList<String> songList = new ArrayList<>() ;
+    ArrayList<Song> songList = new ArrayList<>() ;
     public void printSong()
     {
         traceSong() ;
@@ -67,8 +68,13 @@ public class filehandling_sorting_arraylist
 
             Collections = toolbox (utility class) for working with that data.
             */
-        Collections.sort(songList) ; // the list provided inside the sort method should have meberswhich are comparable and that they should be implemet the comparable interface
-        System.out.println(songList) ;
+       // Collections.sort(songList) ; // the list provided inside the sort method should have meberswhich are comparable and that they should be implemet the comparable interface
+       // System.out.println(songList) ;
+       for(Song song : songList)
+       {
+        System.out.println(song) ;
+        System.out.println("----------------------------") ;
+       }
     }
 
     public void traceSong()
@@ -99,7 +105,8 @@ public class filehandling_sorting_arraylist
     public void performSongSeparation(String lineToPerform)
     {
         String [] songDetails = lineToPerform.split("/") ;
-        songList.add(songDetails[0]) ;
+        float r_float = Float.parseFloat(songDetails[2]) ;
+        songList.add(new Song(songDetails[0],songDetails[1],r_float,songDetails[3])) ;
     }
 
     public static void main(String [] args)
@@ -108,4 +115,6 @@ public class filehandling_sorting_arraylist
 
         obj.printSong() ;
     }
+
+
 }
