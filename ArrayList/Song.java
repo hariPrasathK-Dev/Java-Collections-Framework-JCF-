@@ -6,7 +6,9 @@
  */
 
 
-public class Song 
+public class Song implements Comparable<Song> // Usually the type within the Comparable and the class name that implements will be the same,
+//which means that, we are specifying the type within the Comparable that the implementing class can be compared against !
+// Here the song objects can be compared against the other song objects
 {
     String songName ;
     String artist ;
@@ -125,5 +127,10 @@ Overridden toString() → custom meaningful string for your object.
     public String toString()
     {
         return "Song : " + this.songName + "\n Artist : " + this.artist + "\n Ratings : " + this.ratings + "\n Beats Per Minute : " + this.bpm ;
+    }
+
+    @Override
+    public int compareTo(Song o) {
+        return this.songName.compareTo(o.songName) ;
     }
 }

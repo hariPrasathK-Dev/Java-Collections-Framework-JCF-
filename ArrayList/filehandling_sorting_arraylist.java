@@ -216,7 +216,7 @@ public class filehandling_sorting_arraylist {
          * 
          * Collections = toolbox (utility class) for working with that data.
          */
-        // Collections.sort(songList) ; // the list provided inside the sort method
+         Collections.sort(songList) ; // the list provided inside the sort method
         // should have meberswhich are comparable and that they should be implemet the
         // comparable interface
         // System.out.println(songList) ;
@@ -244,6 +244,7 @@ public class filehandling_sorting_arraylist {
             while ((line = reader.readLine()) != null) {
                 performSongSeparation(line);
             }
+            reader.close() ;
         } catch (Exception e) {
             e.printStackTrace();
         }
