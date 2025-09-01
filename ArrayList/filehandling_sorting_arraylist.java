@@ -5,6 +5,143 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Collections;
 
+/*
+Generics : 
+
+Note : Most programmers just need to know three things regardng to the Generics :
+
+1) Instantiating a generic class
+2) Assigning an instance of a generic class with particular type(class) and then will i be able to assign to that variable, a subclass of that
+type(class) ? A question to the 'polymorphism' regaring to the Generics in which a variation to the polymorphism property with regard to the generics.
+3) Declaring a method that allows  generic type inputs, will i be able to input a type which is a sub-class of the instantiated type !
+
+ 🌟 What are Generics?
+
+Generics = a way to write classes, interfaces, and methods that can work with any data type, but still give type safety.
+Example:
+
+List<String> names = new ArrayList<>();
+
+
+Here, List<String> means this list can only hold Strings.
+
+✅ Advantages of Generics (vs. no generics)
+
+Type Safety
+
+Without generics: you could put anything in a collection → errors at runtime.
+
+With generics: compiler checks the type → errors caught at compile-time.
+
+List<String> names = new ArrayList<>();
+names.add("Hari");
+names.add(10); // ❌ Compile-time error
+
+
+No Casting Needed
+
+Without generics: you must cast when retrieving.
+
+With generics: automatic type inference.
+
+// Without generics
+List list = new ArrayList();
+list.add("Hari");
+String s = (String) list.get(0); // manual cast  
+
+// With generics
+List<String> list2 = new ArrayList<>();
+list2.add("Hari");
+String s2 = list2.get(0); // no cast needed
+
+
+Code Reusability
+
+You can write one class/method and use it for different types.
+
+class Box<T> {
+    T value;
+    Box(T value) { this.value = value; }
+    T getValue() { return value; }
+}
+Box<Integer> b1 = new Box<>(100);
+Box<String> b2 = new Box<>("Hello");
+
+
+Better Readability & Maintainability
+
+When you see List<String>, you instantly know it holds Strings, not something else.
+
+👉 Easy way to remember:
+
+Without Generics = risk of runtime errors + lots of casting.
+
+With Generics = safer, cleaner, reusable code.
+ */
+
+/*
+ Polymorphism :
+
+ Polymorphism (meaning)
+
+Poly = many, morph = forms → “one thing, many forms.”
+In Java → the same object/ method can behave differently depending on the context.
+
+✅ Types of Polymorphism in Java
+
+Compile-time Polymorphism (Method Overloading)
+
+Same method name, but different parameter list (number/type/order).
+
+Decided at compile time.
+
+class MathUtil {
+   int add(int a, int b) { return a+b; }
+   double add(double a, double b) { return a+b; }
+}
+
+
+Runtime Polymorphism (Method Overriding)
+
+A subclass provides its own implementation of a method defined in the parent class.
+
+Decided at runtime → depends on the actual object being referenced.
+
+class Animal {
+   void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+   @Override
+   void sound() { System.out.println("Bark"); }
+}
+class Cat extends Animal {
+   @Override
+   void sound() { System.out.println("Meow"); }
+}
+public class Demo {
+   public static void main(String[] args) {
+       Animal a = new Dog(); a.sound(); // Bark
+       a = new Cat(); a.sound();       // Meow
+   }
+}
+
+✅ Key Advantages of Polymorphism
+
+Code Reusability → write general code, let subclasses specialize.
+
+Flexibility → the same method call works differently for different objects.
+
+Readability & Maintainability → reduces duplication, makes code cleaner.
+
+Foundation of OOP in Java → used everywhere in frameworks like Spring (e.g., beans, interfaces).
+
+👉 Easy way to remember:
+
+Overloading = compile-time polymorphism (same name, different parameters).
+
+Overriding = runtime polymorphism (same method, different implementation).
+ */
+
 public class filehandling_sorting_arraylist {
 
     // Note : TreeSet data structure is used whenever the data shoudl be sorted and
