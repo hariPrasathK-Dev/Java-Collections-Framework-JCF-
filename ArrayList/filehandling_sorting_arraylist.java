@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Collections;
+import java.util.Comparator;
 
 /*
 Generics : 
@@ -154,7 +155,11 @@ public class filehandling_sorting_arraylist {
 
     public void printSong() {
         traceSong();
-        System.out.println(songList);
+        //System.out.println(songList);
+        for (Song song : songList) {
+            System.out.println(song);
+            System.out.println("----------------------------");
+        }
 
         // songList.sort() requires some declaration of stuff within the method which we
         // will learn in the further examples.. As of now to keep things simple, just
@@ -216,10 +221,22 @@ public class filehandling_sorting_arraylist {
          * 
          * Collections = toolbox (utility class) for working with that data.
          */
+        System.out.println("Sorted using the Comparable implementation based on the song Name") ;
          Collections.sort(songList) ; // the list provided inside the sort method
-        // should have meberswhich are comparable and that they should be implemet the
+        // should have members which are comparable and that they should be implemeting the
         // comparable interface
         // System.out.println(songList) ;
+        for (Song song : songList) {
+            System.out.println(song);
+            System.out.println("----------------------------");
+        }
+
+        System.out.println("Sorted using the Comparator implementation based in the Artist name") ;
+        artistCompare artistCmp = new artistCompare() ;
+        Collections.sort(songList,artistCmp) ; // Whenever there is need for the user based cutom sorting, i.e , different users have different 
+        // opinion on the bsis of the Sorting process, then the built-in defined Comparable based solution does not make sense. So then we go 
+        // with the Comparator based implementing which allows users to have their own way of the sorting defined wiht the help of the Comparator !!
+
         for (Song song : songList) {
             System.out.println(song);
             System.out.println("----------------------------");
@@ -261,6 +278,21 @@ public class filehandling_sorting_arraylist {
         filehandling_sorting_arraylist obj = new filehandling_sorting_arraylist();
 
         obj.printSong();
+    }
+
+
+    // This inner defined class is for the purpose of the Comparator definement logic to sort based on the basis of the Artist's name :
+    public class artistCompare implements Comparator<Song>
+    {
+
+        @Override
+        public int compare(Song o1, Song o2) {
+            // TODO Auto-generated method stub
+            //throw new UnsupportedOperationException("Unimplemented method 'compare'");
+
+            return o1.artist.compareTo(o2.artist) ;
+        }
+
     }
 
 }

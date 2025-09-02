@@ -129,8 +129,20 @@ Overridden toString() → custom meaningful string for your object.
         return "Song : " + this.songName + "\n Artist : " + this.artist + "\n Ratings : " + this.ratings + "\n Beats Per Minute : " + this.bpm ;
     }
 
+    // This is for the sort(List o) that is for the sort method involving the single parameter and the type Song must then be imlemetnting the in-built
+    // Comparable interface and this compareTo method
     @Override
     public int compareTo(Song o) {
         return this.songName.compareTo(o.songName) ;
     }
+
+    // There is something else also called the Comparator which is for the sort(List o, comparator ) thing which means this does onot even require the 
+    // internal compareTo method of the type within the ArrayList or even any one Collection thing that is here Song and more importantly this is exteranal
+    // mahn !!!
+    /*
+     public int compare(T o1, T o2)
+     {
+            
+     }
+     */
 }
